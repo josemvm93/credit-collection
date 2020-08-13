@@ -1,1 +1,1 @@
-# credit-collection
+# CREDIT COLLECTION
