@@ -8,13 +8,6 @@ def create_app(env=None):
     from .config import config_by_name
     from app.routes import register_routes
 
-    # engine = create_engine(f'postgresql://{db_user}:{db_password}@{db_url}/{db_name}')
-    # Session = sessionmaker(bind=engine)
-
-    # Base = declarative_base()
-
-    # Base.metadata.create_all(engine)
-
     app = Flask(__name__)
     app.config.from_object(config_by_name[env or "dev"])
 
