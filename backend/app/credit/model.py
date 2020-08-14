@@ -2,7 +2,7 @@ from sqlalchemy import Column, String, Integer, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from enum import Enum
 from .interface import CreditInterface, RequestCreditInterface
-from app.db import Base, Entity
+from app.db import Entity, db
 
 class CreditState(Enum):
     APPROVED = 1
@@ -15,7 +15,8 @@ class RequestCreditState(Enum):
     FINALIZED = 3
 
 
-class Credit(Entity, Base):
+# class Credit(Entity, Base):
+class Credit(Entity, db.Model):
     __tablename__ = 'credits'
 
     amount = Column(Integer, nullable=False)
@@ -33,7 +34,7 @@ class Credit(Entity, Base):
             setattr(self, key, val)
         return self
 
-class RequestCredit(Entity, Base):
+class RequestCredit(Entity, db.Model):
     __tablename__ = 'request_credits'
 
     amount = Column(Integer, nullable=False)

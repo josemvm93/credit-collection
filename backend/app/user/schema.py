@@ -10,7 +10,7 @@ class UserSchema(Schema):
     rol = fields.Number(attribute="rol")
 
 class PersonSchema(Schema):
-    """User Schema"""
+    """Person Schema"""
 
     id = fields.Number(attribute="id")
     name = fields.String(attribute="name")

@@ -19,6 +19,10 @@ mypy-extensions = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
+flask-seeder = "*"
+flask-script = "*"
+panda = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.8"

@@ -1,6 +1,7 @@
 import os
 
 from app import create_app
+from app.db import db
 
 env = os.getenv("FLASK_ENV") or "dev"
 print(f"Active environment: * {env} *")

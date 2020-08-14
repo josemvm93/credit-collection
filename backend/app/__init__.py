@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_restx import Api
+from flask_seeder import FlaskSeeder
+from flask_cors import CORS
 
 def create_app(env=None):
     from .db import db
@@ -16,8 +18,13 @@ def create_app(env=None):
     register_routes(api, app)
 
     db.init_app(app)
-    
+
     ma.init_app(app)
     migrate.init_app(app, db)
+
+
+    seeder = FlaskSeeder()
+    seeder.init_app(app, db)
+    CORS(app)
 
     return app

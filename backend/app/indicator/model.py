@@ -1,9 +1,10 @@
-from app.db import Base, Entity
+from app.db import Entity, db
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from .interface import IndicatorInterface
 
-class Indicator(Entity, Base):
+
+class Indicator(Entity, db.Model):
     __tablename__ = 'indicators'
 
     name = Column(String(80), unique=True, nullable=False)    

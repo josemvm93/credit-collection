@@ -12,6 +12,7 @@ class DevelopmentConfig(BaseConfig):
     TESTING = False
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('POSTGRES_DEV_URI')
+    CORS_HEADERS = 'Content-Type'
 
 class TestingConfig(BaseConfig):
     CONFIG_NAME = "test"
