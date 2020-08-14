@@ -9,9 +9,21 @@ from .service import UserService, PersonService
 from .model import User, Person
 from .interface import UserInterface, PersonInterface
 
+login_api = Namespace("Login", description="Login")
+
+@login_api.route("/", strict_slashes=False)
+class LoginResource(Resource):
+    """Login User"""
+
+    @accepts(schema=UserSchema, api=login_api)
+    @responds(schema=UserSchema)
+    def post(self) -> User:
+        return UserService.login(request.parsed_obj)
+
+
 user_api = Namespace("User", description="User")
 
-@user_api.route("/")
+@user_api.route("/", strict_slashes=False)
 class UserResource(Resource):
     """Users"""
 
@@ -27,7 +39,6 @@ class UserResource(Resource):
         """Create a Single User"""
 
         return UserService.create(request.parsed_obj)
-
 
 @user_api.route("/<int:id>")
 @user_api.param("id", "User database ID")
@@ -57,7 +68,7 @@ class UserIdResource(Resource):
 
 person_api = Namespace("Person", description="Person")
 
-@person_api.route("/")
+@person_api.route("/", strict_slashes=False)
 class PersonResource(Resource):
     """Persons"""
 

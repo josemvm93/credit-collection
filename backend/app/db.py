@@ -1,12 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
-
 from datetime import datetime
 from sqlalchemy import create_engine, Column, String, Integer, DateTime
-from sqlalchemy.ext.declarative import declarative_base
 
 db = SQLAlchemy()
-
-Base = declarative_base()
 
 class Entity():
     id = Column(Integer, primary_key=True)

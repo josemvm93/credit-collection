@@ -16,10 +16,12 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<User> {
-    const params = new HttpParams()
-      .set('username', username)
-      .set('password', password)
-    return this.httpClient.post<User>(this.path, {params})
+    const user: User = {
+      username: username,
+      password: password,
+    }
+
+    return this.httpClient.post<User>(this.path, user)
   }
 
 }

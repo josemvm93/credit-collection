@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="" aria-label="Example icon-button with menu icon" (click)="openMenu()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Client Collection</span>
+    <span class="spacer"></span>
+
+    <button mat-raised-button matBadge="30" matBadgePosition="before" matBadgeColor="warn" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+        <mat-icon>forward_to_inbox</mat-icon>
+    </button>
+
+    <button mat-icon-button class="" aria-label="">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+
+</mat-toolbar>

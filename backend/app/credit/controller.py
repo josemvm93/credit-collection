@@ -11,7 +11,7 @@ from .interface import CreditInterface, RequestCreditInterface
 
 credit_api = Namespace("Credit", description="Credit")
 
-@credit_api.route("/")
+@credit_api.route("/", strict_slashes=False)
 class CreditResource(Resource):
     """Credits"""
 
@@ -57,7 +57,7 @@ class CreditIdResource(Resource):
 
 request_credit_api = Namespace("RequestCredit", description="RequestCredit")
 
-@request_credit_api.route("/")
+@request_credit_api.route("/", strict_slashes=False)
 class RequestCreditResource(Resource):
     """RequestCredits"""
 

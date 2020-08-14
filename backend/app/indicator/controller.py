@@ -11,7 +11,7 @@ from .interface import IndicatorInterface
 
 indicator_api = Namespace("Indicator", description="Indicator")
 
-@indicator_api.route("/")
+@indicator_api.route("/", strict_slashes=False)
 class IndicatorResource(Resource):
     """Indicators"""
 

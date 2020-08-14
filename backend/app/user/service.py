@@ -2,8 +2,18 @@ from app import db
 from .model import User, Person
 from .interface import UserInterface, PersonInterface
 from typing import List
+from app.shared.response_handling import get_response
 
 class UserService:
+
+    @staticmethod
+    def login(new_attrs: UserInterface):
+        user_tmp = User(username=new_attrs["username"], password=new_attrs["password"])
+
+        user = User.query.filter_by(username=user_tmp.username).first()
+        if user and user.check_password(password=user_tmp.password):
+            return user
+        return get_response(404, "User not Found", "User or password wrong")
 
     @staticmethod
     def get_all():
